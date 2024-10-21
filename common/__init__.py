@@ -48,4 +48,5 @@ class MdFile:
 
 def configureChromiumPage():
     from DrissionPage.common import Settings
-    Settings.raise_when_ele_not_found = True
+    # Settings.raise_when_ele_not_found = True
+    pass

@@ -3,6 +3,7 @@ from DrissionPage import ChromiumPage
 from common import MdFile, publish_interceptor
 
 
+# 设置->默认编辑器->Markdown编辑器
 @publish_interceptor(plt='简书')
 def publish(md_file: MdFile):
     page = ChromiumPage()
@@ -15,5 +16,7 @@ def publish(md_file: MdFile):
     title_input.wait.deleted()
     tab.wait.eles_loaded(title_input_xpath, any_one=True)
     title_input = tab(title_input_xpath)
+    title_input.click()
     title_input.input(md_file.name)
-    tab('x://*[@id="arthur-editor"]').input(Keys.CTRL_V)
+    content_ele = tab('x://*[@id="arthur-editor"]')
+    content_ele.input(Keys.CTRL_V)
