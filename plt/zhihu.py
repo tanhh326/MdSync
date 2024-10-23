@@ -14,7 +14,7 @@ def publish(md_file: MdFile):
     tab.wait.eles_loaded('x://*[@id="Popover5-content"]/div/button[1]')
     upload_menu_item = tab('x://*[@id="Popover5-content"]/div/button[1]')
     upload_menu_item.click()
+    tab.wait.eles_loaded('x:/html/body/div[6]/div/div')
     # 点击上传，打开文件选择器
-    tab.wait.eles_loaded('x:/html/body/div[6]/div/div/div/div[2]/div/div[1]/form/div/div')
-    uploader_div = tab('x:/html/body/div[6]/div/div/div/div[2]/div/div[1]/form/div/div')
-    uploader_div.click.to_upload(md_file.abs_path)
+    uploader = tab('x:/html/body/div[6]/div/div/div/div[2]/div/div[1]/form/input')
+    uploader.click.to_upload(md_file.abs_path, by_js=True)

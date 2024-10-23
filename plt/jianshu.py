@@ -17,6 +17,8 @@ def publish(md_file: MdFile):
     tab.wait.eles_loaded(title_input_xpath, any_one=True)
     title_input = tab(title_input_xpath)
     title_input.click()
+    # 默认标题是当天的时间，清除掉
+    title_input.set.value('')
     title_input.input(md_file.name)
     content_ele = tab('x://*[@id="arthur-editor"]')
     content_ele.input(Keys.CTRL_V)
